@@ -16,4 +16,4 @@ for fruta in precios2:
     for clave in fruta.keys(): 
         print(clave)
 
-print(precios)
+print(precios2[0]["banana"])
