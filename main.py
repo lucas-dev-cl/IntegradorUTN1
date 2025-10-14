@@ -36,14 +36,58 @@ if(__name__ == "__main__"):
         ============================
         """)
 
-        opcion :str = input("Ingrese una opcion: ")
+        opcion:str = input("Ingrese una opcion: ")
 
         if opcion not in ["0", "1", "2", "3", "4"]:
             print("Opción inválida. Intente nuevamente.") 
         
         elif opcion == "1":
             buscar(lista_objetos) 
+
+        elif opcion == "2": 
+            print("En mantenimiento...")
+
+        elif opcion == "3": 
+            print("""
+            Ordenar por:
+                a) Nombre
+                b) Población
+                c) Superficie (ascendente o descendente)
+            """)    
+
+            subopcion:str = input("Ingrese una subopción: ").lower()
         
+            if subopcion not in ["a", "b", "c"]:
+                print("Subopción inválida")
+            else:
+                if subopcion == "a":
+                    print("Paises ordenados por nombres (ascendente): ")
+                    ordenar_objetos(lista_objetos, "nombre")
+
+                elif subopcion == "b":
+                    print("Paises ordenados por poblacion (ascendente): ")
+                    ordenar_objetos(lista_objetos, "poblacion")
+                    
+                elif subopcion == "c":
+                    print("""
+                    Elegir por:
+                        a) Ascendente
+                        b) Descendente
+                    """)
+
+                    opcion:str = input("Ingrese opcion: ") 
+
+                    if opcion not in ["a", "b"]: 
+                        print("Opción inválida")
+
+                    elif opcion == "a": 
+                        print("Paises ordenados por superficie (ascendente): ")
+                        ordenar_objetos(lista_objetos, "superficie")
+
+                    elif opcion == "b": 
+                        print("Paises ordenados por superficie (ascendente): ")
+                        ordenar_objetos_desc(lista_objetos, "superficie")
+
         else:
             if opcion == "0":
                 print("Terminamos")

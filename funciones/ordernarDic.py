@@ -10,7 +10,8 @@ def ordenar_objetos(archivo, propiedad):
                 archivo[j] = archivo[j + 1]
                 archivo[j + 1] = aux
 
-    return archivo
+    for i in archivo: 
+        print(i)
 
 def ordenar_objetos_desc(archivo, propiedad): 
     # Recorremos los archivos para comparar
@@ -22,5 +23,6 @@ def ordenar_objetos_desc(archivo, propiedad):
                 archivo[j] = archivo[j + 1]
                 archivo[j + 1] = aux
 
-    return archivo
+    for i in archivo: 
+        print(i)
 
