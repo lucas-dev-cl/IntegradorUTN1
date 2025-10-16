@@ -1,7 +1,7 @@
 # Leemos el archivo csv y lo creamos en un diccionario
 # Retorna la lista de objetos, por lo tanto para usarla tenemos que asignarla a una variable o si queremos ver solamente datos, printear 
 def csvAdic(ruta): 
-    with open(ruta, "r", encoding="utf-8") as file:
+    with open(ruta, "w", encoding="utf-8") as file:
         # Leemos el archivo y lo hacemos una lista separado por sus salto de lineas
         contenido: list = file.read().split("\n")
 
