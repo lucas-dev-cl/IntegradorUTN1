@@ -62,7 +62,7 @@ if(__name__ == "__main__"):
             else:
                 if subopcion == "a":
                     print("Paises ordenados por nombres (ascendente): ")
-                    ordenar_objetos(lista_objetos, "nombre")
+                    ordenar_objetos(lista_objetos, "pais")
 
                 elif subopcion == "b":
                     print("Paises ordenados por poblacion (ascendente): ")
