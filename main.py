@@ -4,6 +4,7 @@ from funciones.ordernarDic import ordenar_objetos_desc
 from funciones.promedioDic import promedioDic
 from funciones.mostrarEstadisticas import paises_por_continente
 from funciones.buscarPais import buscar
+from funciones.filtrarPaises import menu_filtrar_paises
 
 if(__name__ == "__main__"): 
     lista_objetos = csvAdic("paises_dataset.csv")
@@ -11,6 +12,7 @@ if(__name__ == "__main__"):
     bandera = True
 
     while bandera: 
+    
         print("""
         ===== MENÚ DE OPCIONES =====
 
@@ -45,7 +47,7 @@ if(__name__ == "__main__"):
             buscar(lista_objetos) 
 
         elif opcion == "2": 
-            print("En mantenimiento...")
+            menu_filtrar_paises(lista_objetos)
 
         elif opcion == "3": 
             print("""
@@ -92,8 +94,3 @@ if(__name__ == "__main__"):
             if opcion == "0":
                 print("Terminamos")
                 bandera = False
-                
-
-
-
-
