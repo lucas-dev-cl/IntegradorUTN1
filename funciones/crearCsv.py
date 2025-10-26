@@ -1,14 +1,18 @@
-import apiCountries
+import csv
+import funciones.apiCountries as apiCountries
 
-with open('paises_dataset.csv', "w", encoding="utf-8") as file: 
-    try:
-        file.write("pais,poblacion,superficie,continente\n")
-        objetos = apiCountries.getCountries()
+with open('paises_dataset.csv', "w", encoding="utf-8", newline='') as file: 
+    writer = csv.writer(file)
+    writer.writerow(["pais","poblacion","superficie","continente"])
 
-        for objeto in objetos: 
-            nombre = objeto['nombre'].replace(',', ';')
-
-            file.write(f"{nombre},{objeto['poblacion']},{objeto['superficie']},{objeto['continente']}\n")
+    objetos = apiCountries.getCountries()
     
-    except Exception as e:
-        print("Ocurrio un error: ", e) 
+    for objeto in objetos:
+        try:
+            nombre = objeto.get('nombre', 'Desconocido').replace(',', ';')
+            poblacion = int(objeto.get('poblacion', 0))
+            superficie = float(objeto.get('superficie', 0))
+            continente = objeto.get('continente', 'Desconocido')
+            writer.writerow([nombre, poblacion, superficie, continente])
+        except Exception as e:
+            print("Error en objeto:", objeto, "Error:", e)

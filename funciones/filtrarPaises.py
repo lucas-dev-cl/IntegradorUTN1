@@ -1,12 +1,13 @@
 from funciones.paginacionConsola import paginar
-import re # Usaremos 're' para limpiar los continentes en el filtro
+import re # Usamos 're' para limpiar los continentes en el filtro
 
 
 def filtrar_por_continente(lista_paises: list):
-    """
-    Filtra la lista de países por un continente específico ingresado por el usuario.
-    Muestra los resultados paginados.
-    """
+    # """
+    # Filtra la lista de países por un continente específico ingresado por el usuario.
+    # Muestra los resultados paginados.
+    # """
+    
     # 1. Obtener y mostrar continentes disponibles (limpiando posibles espacios o caracteres)
     continentes_unicos = set()
     for pais in lista_paises:
@@ -120,10 +121,11 @@ def filtrar_por_rango_superficie(lista_paises: list):
 
 
 def menu_filtrar_paises(lista_paises: list):
-    """Maneja el submenú de filtrado de países (Opción 2)."""
-    while True:
+    # """Maneja el submenú de filtrado de países (Opción 2)."""
+    bandera = True
+    while bandera:
         print("""
-        --- Opciones de Filtrado (Opción 2) ---
+        --- Opciones de filtrado (Opción 2) ---
         a) Continente
         b) Rango de población
         c) Rango de superficie
@@ -139,6 +141,6 @@ def menu_filtrar_paises(lista_paises: list):
         elif subopcion == "c":
             filtrar_por_rango_superficie(lista_paises)
         elif subopcion == "d":
-            break
+            bandera = False
         else:
             print(" Opción inválida. Intente de nuevo.")

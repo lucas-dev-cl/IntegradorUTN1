@@ -1,8 +1,6 @@
 from funciones.crearDic import csvAdic
-from funciones.ordernarDic import ordenar_objetos
-from funciones.ordernarDic import ordenar_objetos_desc
-from funciones.promedioDic import promedioDic
-from funciones.mostrarEstadisticas import paises_por_continente
+from funciones.ordernarDic import menu_ordenar
+from funciones.mostrarEstadisticas import menu_estadisticas
 from funciones.buscarPais import buscar
 from funciones.filtrarPaises import menu_filtrar_paises
 
@@ -38,59 +36,22 @@ if(__name__ == "__main__"):
         ============================
         """)
 
-        opcion:str = input("Ingrese una opcion: ")
-
-        if opcion not in ["0", "1", "2", "3", "4"]:
-            print("Opción inválida. Intente nuevamente.") 
+        opcion:str = input("Ingrese una opcion: ") 
         
-        elif opcion == "1":
+        if opcion == "1":
             buscar(lista_objetos) 
 
         elif opcion == "2": 
             menu_filtrar_paises(lista_objetos)
 
         elif opcion == "3": 
-            print("""
-            Ordenar por:
-                a) Nombre
-                b) Población
-                c) Superficie (ascendente o descendente)
-            """)    
+            menu_ordenar(lista_objetos)
 
-            subopcion:str = input("Ingrese una subopción: ").lower()
+        elif opcion == "4": 
+            menu_estadisticas(lista_objetos) 
         
-            if subopcion not in ["a", "b", "c"]:
-                print("Subopción inválida")
-            else:
-                if subopcion == "a":
-                    print("Paises ordenados por nombres (ascendente): ")
-                    ordenar_objetos(lista_objetos, "pais")
-
-                elif subopcion == "b":
-                    print("Paises ordenados por poblacion (ascendente): ")
-                    ordenar_objetos(lista_objetos, "poblacion")
-                    
-                elif subopcion == "c":
-                    print("""
-                    Elegir por:
-                        a) Ascendente
-                        b) Descendente
-                    """)
-
-                    opcion:str = input("Ingrese opcion: ") 
-
-                    if opcion not in ["a", "b"]: 
-                        print("Opción inválida")
-
-                    elif opcion == "a": 
-                        print("Paises ordenados por superficie (ascendente): ")
-                        ordenar_objetos(lista_objetos, "superficie")
-
-                    elif opcion == "b": 
-                        print("Paises ordenados por superficie (ascendente): ")
-                        ordenar_objetos_desc(lista_objetos, "superficie")
-
-        else:
-            if opcion == "0":
+        elif opcion == "0":
                 print("Terminamos")
                 bandera = False
+        else: 
+            print("Opción inválida. Intente nuevamente.")

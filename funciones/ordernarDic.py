@@ -2,8 +2,8 @@ from funciones.paginacionConsola import paginar
 
 # Modulo para ordenar el archivos
 # Ordenar de manera ascendente por nombre
-def ordenar_objetos(archivo, propiedad):
-    lista_ordenada = archivo.copy()
+def ordenar_objetos(lista, propiedad):
+    lista_ordenada = lista.copy()
 
     # Recorremos los archivos para comparar
     for i in range(len(lista_ordenada) - 1): 
@@ -26,8 +26,8 @@ def ordenar_objetos(archivo, propiedad):
     paginar(lista_ordenada)
     
 
-def ordenar_objetos_desc(archivo, propiedad): 
-    lista_ordenada = archivo.copy()
+def ordenar_objetos_desc(lista, propiedad): 
+    lista_ordenada = lista.copy()
 
     # Recorremos los archivos para comparar
     for i in range(len(lista_ordenada) - 1): 
@@ -48,3 +48,45 @@ def ordenar_objetos_desc(archivo, propiedad):
                     lista_ordenada[j], lista_ordenada[j + 1] = lista_ordenada[j + 1], lista_ordenada[j]
 
     paginar(lista_ordenada)
+
+def menu_ordenar(lista): 
+    bandera = True
+    while bandera:
+        print("""
+        --- Opciones de ordenamiento (Opción 3) ---
+        a) Ordenar por nombre
+        b) Ordenar por poblacion
+        c) Ordenar por superficie
+        d) Volver al menú principal
+        """)
+
+        subopcion: str = input("Ingrese una subopción de ordenamiento: ").lower()
+        
+        if subopcion == "a":
+            ordenar_objetos(lista, "pais")
+        elif subopcion == "b":
+            ordenar_objetos(lista, "poblacion")
+        elif subopcion == "c":
+            print("""
+            Elegir por:
+            a) Ascendente
+            b) Descendente
+            """)
+            while True: 
+                opcion:str = input("Ingrese opcion: ").lower() 
+
+                if opcion == "a": 
+                    print("Paises ordenados por superficie (ascendente): ")
+                    ordenar_objetos(lista, "superficie")
+
+                elif opcion == "b": 
+                    print("Paises ordenados por superficie (descendente): ")
+                    ordenar_objetos_desc(lista, "superficie")
+                
+                else:
+                    print(" Opción inválida. Intente de nuevo.")   
+        elif subopcion == "d": 
+            bandera = False 
+        else:
+            print(" Opción inválida. Intente de nuevo.")
+    

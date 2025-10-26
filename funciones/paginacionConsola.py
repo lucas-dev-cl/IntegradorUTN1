@@ -29,8 +29,8 @@ def paginar(lista):
             print("No hay mas paises")
             break
         
-        continuar = input("Continuar? ")
-        if continuar.lower() == "no":
+        continuar = input("¿Siguiente pagina? (escriba 'no' o 'n' para salir)").lower()
+        if continuar == "no" or continuar == "n":
             print("Terminamos")
             break
 
