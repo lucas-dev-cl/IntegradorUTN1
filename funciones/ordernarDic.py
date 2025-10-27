@@ -48,10 +48,12 @@ def ordenar_objetos_desc(lista, propiedad):
                     lista_ordenada[j], lista_ordenada[j + 1] = lista_ordenada[j + 1], lista_ordenada[j]
 
     paginar(lista_ordenada)
-
+    
+# Menú para ordenar la lista de países según diferentes criterios
 def menu_ordenar(lista): 
     bandera = True
     while bandera:
+        # Muestra las opciones de ordenamiento
         print("""
         --- Opciones de ordenamiento (Opción 3) ---
         a) Ordenar por nombre
@@ -60,13 +62,16 @@ def menu_ordenar(lista):
         d) Volver al menú principal
         """)
 
+        # Pide al usuario que ingrese una subopción
         subopcion: str = input("Ingrese una subopción de ordenamiento: ").lower()
         
+        # Ordena según la opción elegida
         if subopcion == "a":
-            ordenar_objetos(lista, "pais")
+            ordenar_objetos(lista, "pais")  # Ordena por nombre
         elif subopcion == "b":
-            ordenar_objetos(lista, "poblacion")
+            ordenar_objetos(lista, "poblacion")  # Ordena por población
         elif subopcion == "c":
+            # Si se elige superficie, pregunta si ascendente o descendente
             print("""
             Elegir por:
             a) Ascendente
@@ -77,16 +82,15 @@ def menu_ordenar(lista):
 
                 if opcion == "a": 
                     print("Paises ordenados por superficie (ascendente): ")
-                    ordenar_objetos(lista, "superficie")
-
+                    ordenar_objetos(lista, "superficie")  # Ascendente
                 elif opcion == "b": 
                     print("Paises ordenados por superficie (descendente): ")
-                    ordenar_objetos_desc(lista, "superficie")
-                
+                    ordenar_objetos_desc(lista, "superficie")  # Descendente
                 else:
                     print(" Opción inválida. Intente de nuevo.")   
         elif subopcion == "d": 
+            # Sale del menú
             bandera = False 
         else:
+            # Opción inválida
             print(" Opción inválida. Intente de nuevo.")
-    

@@ -56,21 +56,26 @@ def pais_mayor_y_menor_poblacion(lista):
     print(f"Pais con menor poblacion: {pais_min} ({poblacion_min})")
     print(f"Pais con mayor poblacion: {pais_max} ({poblacion_max})")
 
+# Función para calcular y mostrar el promedio de una propiedad (población o superficie)
 def promedios(archivo, propiedad): 
     suma = 0
 
-    # Recorremos cada elemento y sumamos las propiedades
+    # Recorre cada objeto y suma el valor de la propiedad indicada
     for objeto in archivo: 
         if propiedad in objeto: 
             suma += float(objeto[propiedad])
 
+    # Calcula el promedio y lo redondea a 2 decimales
     promedio = round(suma / len(archivo), 2)
 
+    # Muestra el resultado
     print(f"promedio de {propiedad}: {promedio}")
 
+# Menú para mostrar estadísticas de los países
 def menu_estadisticas(archivo): 
     bandera = True
     while bandera:
+        # Muestra las opciones de estadísticas
         print("""
         --- Opciones de estadisticas (Opción 4) ---
         a) Pais con menor y mayor poblacion
@@ -80,8 +85,10 @@ def menu_estadisticas(archivo):
         e) Volver al menú principal
         """)
 
+        # Pide al usuario que ingrese una opción
         subopcion: str = input("Ingrese una subopción de estadistica: ").lower()
         
+        # Llama a la función correspondiente según la opción
         if subopcion == "a":
             pais_mayor_y_menor_poblacion(archivo)
         elif subopcion == "b":
@@ -91,6 +98,7 @@ def menu_estadisticas(archivo):
         elif subopcion == "d":
             paises_por_continente(archivo)
         elif subopcion == "e": 
+            # Sale del menú
             bandera = False
         else:
             print(" Opción inválida. Intente de nuevo.")
