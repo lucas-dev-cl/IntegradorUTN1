@@ -1,3 +1,5 @@
+Link del video explicando el codigo: https://youtu.be/WKo0ZeQQMiM
+
 Descripción del Programa
 
 Este programa permite gestionar y analizar información de países a partir de un archivo CSV (paises_dataset.csv), el cual fue generado utilizando datos obtenidos de la API pública REST Countries.
