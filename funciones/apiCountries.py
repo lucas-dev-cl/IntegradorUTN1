@@ -29,5 +29,6 @@ def getCountries():
     # Punto de acceso para acceder a los errores de la request
     except requests.exceptions.RequestException as e:
         print("Error en el servidor: ", e)          
-    except requests.exceptions as e:
-        print("Error al pasar los datos: ", e)
+    # Errores internos o de datos
+    except Exception as e:
+        print("Error general al procesar los datos:", e)
