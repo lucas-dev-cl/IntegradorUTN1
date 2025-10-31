@@ -13,7 +13,9 @@ def buscar(archivo):
             paises.append(objeto)  # Lo agrega a la lista de resultados
         
     # Si no se encontró ningún país
-    if not paises:
+    if valor_pais.isdigit():
+        print("Valor invalido...")
+    elif not paises: 
         print("No se encontró ningún país...")
     else:
         # Si hay resultados, los muestra usando la paginación

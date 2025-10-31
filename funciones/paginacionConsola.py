@@ -11,7 +11,7 @@ def paginar(lista):
     while inicio < len(lista):
         fin = inicio + pasos
         pagina = lista[inicio:fin]  # extrae la "página" actual
-        
+
         # Crear tabla para la página
         table = Table(title=f"Paises {inicio+1} - {min(fin, len(lista))}")
         table.add_column("Pais", style="cyan")
@@ -28,14 +28,14 @@ def paginar(lista):
         
         # Avanza al siguiente grupo de países
         inicio += pasos
-        
+
         # Si ya no hay más países, termina
         if(inicio >= len(lista)):
             print("No hay mas paises")
             break
         
         # Pregunta al usuario si quiere continuar a la siguiente página
-        continuar = input("¿Siguiente pagina? (escriba 'no' o 'n' para salir)").lower()
+        continuar = input("¿Siguiente pagina? (escriba 'no' o 'n' para salir): ").lower()
         if continuar == "no" or continuar == "n":
             print("Terminamos")
             break

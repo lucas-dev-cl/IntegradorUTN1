@@ -1,6 +1,9 @@
 from funciones.paginacionConsola import paginar
 import re # Usamos 're' para limpiar los continentes en el filtro
+# Importacion para darle color y estilo a algunos textos
+from colorama import Fore, Style,init
 
+init()
 
 def filtrar_por_continente(lista_paises: list):
     # """
@@ -18,7 +21,7 @@ def filtrar_por_continente(lista_paises: list):
             
     continentes_disponibles = sorted(list(continentes_unicos))
     
-    print("\n--- Continentes Disponibles ---")
+    print(f"\n{Fore.YELLOW}--- Continentes Disponibles ---{Style.RESET_ALL}")
     for i, cont in enumerate(continentes_disponibles):
         print(f"  - {cont}")
     print("-----------------------------\n")
@@ -26,7 +29,7 @@ def filtrar_por_continente(lista_paises: list):
     continente_a_buscar = input("Ingrese el nombre del continente a filtrar: ").strip().lower()
 
     if not continente_a_buscar:
-        print(" El continente no puede estar vacío.")
+        print(f"{Fore.RED} El continente no puede estar vacío.")
         return
 
     resultados = []
@@ -47,7 +50,7 @@ def filtrar_por_rango_poblacion(lista_paises: list):
     Filtra la lista de países por un rango de población (mínimo y máximo).
     Muestra los resultados paginados.
     """
-    print("\n--- Filtro por Rango de Población ---")
+    print(f"\n{Fore.YELLOW}--- Filtro por Rango de Población ---{Style.RESET_ALL}")
     try:
         pob_min_str = input("Ingrese la población mínima (ej: 1000000): ").strip()
         pob_max_str = input("Ingrese la población máxima (ej: 100000000): ").strip()
@@ -57,11 +60,11 @@ def filtrar_por_rango_poblacion(lista_paises: list):
         pob_max = int(pob_max_str)
         
     except ValueError:
-        print("Error: Por favor, ingrese solo números enteros para la población.")
+        print(f"{Fore.RED}Error: Por favor, ingrese solo números enteros para la población.")
         return
 
     if pob_min > pob_max or pob_min < 0 or pob_max < 0:
-        print("Error: El rango no es válido (mínimo debe ser <= máximo, y ambos deben ser positivos).")
+        print(f"{Fore.RED}Error: El rango no es válido (mínimo debe ser <= máximo, y ambos deben ser positivos).")
         return
 
     resultados = []
@@ -86,7 +89,7 @@ def filtrar_por_rango_superficie(lista_paises: list):
     Filtra la lista de países por un rango de superficie (mínimo y máximo).
     Muestra los resultados paginados.
     """
-    print("\n--- Filtro por Rango de Superficie (km²) ---")
+    print(f"\n{Fore.YELLOW}--- Filtro por Rango de Superficie (km²) ---{Style.RESET_ALL}")
     try:
         sup_min_str = input("Ingrese la superficie mínima (km²): ").strip()
         sup_max_str = input("Ingrese la superficie máxima (km²): ").strip()
@@ -96,11 +99,11 @@ def filtrar_por_rango_superficie(lista_paises: list):
         sup_max = int(sup_max_str)
         
     except ValueError:
-        print(" Error: Por favor, ingrese solo números enteros para la superficie.")
+        print(f"{Fore.RED} Error: Por favor, ingrese solo números enteros para la superficie.")
         return
 
     if sup_min > sup_max or sup_min < 0 or sup_max < 0:
-        print(" Error: El rango no es válido (mínimo debe ser <= máximo, y ambos deben ser positivos).")
+        print(f"{Fore.RED} Error: El rango no es válido (mínimo debe ser <= máximo, y ambos deben ser positivos).")
         return
 
     resultados = []
@@ -124,8 +127,8 @@ def menu_filtrar_paises(lista_paises: list):
     # """Maneja el submenú de filtrado de países (Opción 2)."""
     bandera = True
     while bandera:
-        print("""
-        --- Opciones de filtrado (Opción 2) ---
+        print(f"""
+        {Fore.YELLOW}--- Opciones de filtrado (Opción 2) --- {Style.RESET_ALL}
         a) Continente
         b) Rango de población
         c) Rango de superficie
@@ -143,4 +146,4 @@ def menu_filtrar_paises(lista_paises: list):
         elif subopcion == "d":
             bandera = False
         else:
-            print(" Opción inválida. Intente de nuevo.")
+            print(f"{Fore.RED} Opción inválida. Intente de nuevo.")

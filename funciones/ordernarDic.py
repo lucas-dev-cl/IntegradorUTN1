@@ -1,4 +1,7 @@
 from funciones.paginacionConsola import paginar 
+from colorama import Fore, Style,init
+
+init()
 
 # Modulo para ordenar el archivos
 # Ordenar de manera ascendente por nombre
@@ -54,8 +57,8 @@ def menu_ordenar(lista):
     bandera = True
     while bandera:
         # Muestra las opciones de ordenamiento
-        print("""
-        --- Opciones de ordenamiento (Opción 3) ---
+        print(f"""
+        {Fore.YELLOW}--- Opciones de ordenamiento (Opción 3) ---{Style.RESET_ALL}
         a) Ordenar por nombre
         b) Ordenar por poblacion
         c) Ordenar por superficie
@@ -72,8 +75,8 @@ def menu_ordenar(lista):
             ordenar_objetos(lista, "poblacion")  # Ordena por población
         elif subopcion == "c":
             # Si se elige superficie, pregunta si ascendente o descendente
-            print("""
-            Elegir por:
+            print(f"""
+            {Fore.YELLOW}Elegir por:
             a) Ascendente
             b) Descendente
             """)
@@ -93,4 +96,4 @@ def menu_ordenar(lista):
             bandera = False 
         else:
             # Opción inválida
-            print(" Opción inválida. Intente de nuevo.")
+            print(f"{Fore.RED} Opción inválida. Intente de nuevo.")

@@ -4,6 +4,14 @@ from funciones.ordernarDic import menu_ordenar
 from funciones.mostrarEstadisticas import menu_estadisticas
 from funciones.buscarPais import buscar
 from funciones.filtrarPaises import menu_filtrar_paises
+import os
+# Importacion para darle color y estilo a algunos textos
+from colorama import Fore, Style, init
+
+init()
+
+def limpiar_consola(): 
+    os.system("cls")
 
 # Si este archivo se ejecuta directamente, se ejecuta lo siguiente
 if(__name__ == "__main__"): 
@@ -15,29 +23,29 @@ if(__name__ == "__main__"):
 
     # Bucle principal del menú
     while bandera: 
+        # limpiar_consola()
         # Opciones del menú
-        print("""
-        ===== MENÚ DE OPCIONES =====
+        print(f"""
+        {Fore.YELLOW}===== MENÚ DE OPCIONES =====
+        {Fore.BLUE}1. {Style.RESET_ALL}Buscar un país por nombre (coincidencia parcial o exacta)
 
-        1. Buscar un país por nombre (coincidencia parcial o exacta)
-
-        2. Filtrar países por:
+        {Fore.BLUE}2. {Style.RESET_ALL}Filtrar países por:
         a) Continente
         b) Rango de población
         c) Rango de superficie
 
-        3. Ordenar países por:
+        {Fore.BLUE}3. {Style.RESET_ALL}Ordenar países por:
         a) Nombre
         b) Población
         c) Superficie (ascendente o descendente)
 
-        4. Mostrar estadísticas:
+        {Fore.BLUE}4. {Style.RESET_ALL}Mostrar estadísticas:
         a) País con mayor y menor población
         b) Promedio de población
         c) Promedio de superficie
         d) Cantidad de países por continente
 
-        0. Salir
+        {Fore.BLUE}0. {Style.RESET_ALL}Salir
         ============================
         """)
 
@@ -59,7 +67,8 @@ if(__name__ == "__main__"):
         
         elif opcion == "0":
             # Si el usuario elige salir, termina el bucle
-            print("Terminamos")
+            print("Terminamos, gracias por usar la app")
             bandera = False
         else: 
-            print("Opción inválida. Intente nuevamente.")
+            print(f"{Fore.RED}Opción inválida. Intente nuevamente.")
+        

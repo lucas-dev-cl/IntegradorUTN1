@@ -1,3 +1,8 @@
+# Importacion para darle color y estilo a algunos textos
+from colorama import Fore, Style, init
+
+init() # Iniciamos la importacion
+
 def paises_por_continente(lista): 
     america = 0
     asia = 0
@@ -53,6 +58,7 @@ def pais_mayor_y_menor_poblacion(lista):
             pais_max = pais["pais"]
 
     # Mostramos los resultados
+    print(f"{Fore.YELLOW}Resultado: {Style.RESET_ALL}")
     print(f"Pais con menor poblacion: {pais_min} ({poblacion_min})")
     print(f"Pais con mayor poblacion: {pais_max} ({poblacion_max})")
 
@@ -76,8 +82,8 @@ def menu_estadisticas(archivo):
     bandera = True
     while bandera:
         # Muestra las opciones de estadísticas
-        print("""
-        --- Opciones de estadisticas (Opción 4) ---
+        print(f"""
+        {Fore.YELLOW}--- Opciones de estadisticas (Opción 4) ---{Style.RESET_ALL}
         a) Pais con menor y mayor poblacion
         b) Promedio de poblacion
         c) Promedio de superficie
@@ -101,4 +107,4 @@ def menu_estadisticas(archivo):
             # Sale del menú
             bandera = False
         else:
-            print(" Opción inválida. Intente de nuevo.")
+            print(f"{Fore.RED} Opción inválida. Intente de nuevo.")
