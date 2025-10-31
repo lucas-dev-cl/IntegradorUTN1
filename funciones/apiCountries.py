@@ -4,7 +4,7 @@ def getCountries():
     try: 
         response = requests.get("https://restcountries.com/v3.1/all?fields=name,population,area,region")
         
-        # Verificamos que el estatus de la request
+        # Verificamos el estatus de la request
         if(response.status_code != 200):
             print(f"Error HTTP {response.status_code}")
             return

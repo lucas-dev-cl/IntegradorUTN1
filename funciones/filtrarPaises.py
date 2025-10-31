@@ -19,10 +19,10 @@ def filtrar_por_continente(lista_paises: list):
         if continente:
             continentes_unicos.add(continente)
             
-    continentes_disponibles = sorted(list(continentes_unicos))
+    continentes_disponibles = sorted(continentes_unicos)
     
     print(f"\n{Fore.YELLOW}--- Continentes Disponibles ---{Style.RESET_ALL}")
-    for i, cont in enumerate(continentes_disponibles):
+    for cont in continentes_disponibles:
         print(f"  - {cont}")
     print("-----------------------------\n")
 
@@ -39,7 +39,7 @@ def filtrar_por_continente(lista_paises: list):
             resultados.append(pais)
     
     if not resultados:
-        print(f" No se encontraron países en el continente '{continente_a_buscar.capitalize()}'.")
+        print(f"{Fore.RED}No se encontraron países en el continente '{continente_a_buscar.capitalize()}'.")
     else:
         print(f"\n Resultados del filtro por continente ('{continente_a_buscar.capitalize()}'):")
         paginar(resultados)
@@ -78,7 +78,7 @@ def filtrar_por_rango_poblacion(lista_paises: list):
             continue
     
     if not resultados:
-        print("No se encontraron países en ese rango de población.")
+        print(f"{Fore.RED}No se encontraron países en ese rango de población.")
     else:
         print(f"\n Resultados del filtro por rango de población ({pob_min:,} - {pob_max:,}):")
         paginar(resultados)

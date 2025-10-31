@@ -1,4 +1,5 @@
 from funciones.paginacionConsola import paginar
+from colorama import Fore, Style, init
 
 # Función para buscar países por nombre
 def buscar(archivo):
@@ -14,9 +15,9 @@ def buscar(archivo):
         
     # Si no se encontró ningún país
     if valor_pais.isdigit():
-        print("Valor invalido...")
+        print(f"{Fore.RED}Valor invalido...")
     elif not paises: 
-        print("No se encontró ningún país...")
+        print(f"{Fore.RED}No se encontró ningún país...")
     else:
         # Si hay resultados, los muestra usando la paginación
         paginar(paises)
